@@ -28,7 +28,20 @@ app.get('/CallCallback', (req,res,next) => {
 })
 
 // Create Array CallBack Function
-// app.get('/arrayCallback', [root, routerName, CallBack])
+const FirstCallback = (req,res,next) => {
+    res.send('First Callback Function')
+    next();
+}
+
+const SecondCallback = (req,res,next) => {
+    console.log('Second CallBack')
+    next();
+}
+
+const ThirdCallBack = (req,res,next) => {
+    console.log('Third Call Back')
+}
+app.get('/arrayCallback', [FirstCallback, SecondCallback, ThirdCallBack])
 
 // Page Not Found Route Create by *
 app.get('*', (req,res) => {
