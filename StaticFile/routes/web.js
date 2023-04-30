@@ -1,8 +1,8 @@
 import express  from "express";
-import {Root} from '../controller/UserSkill.js'
-const Router = express.Router();
+import {index, AddUser} from "../controller/HomeController.js";
+const router = express.Router();
 
+router.get('/', index)
+router.post('add-user', AddUser)
 
-Router.get('/', Root)
-
-export default Router
+export default router;
